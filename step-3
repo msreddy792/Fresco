@@ -1,0 +1,25 @@
+Configure and Run Prometheus Server
+-----------------------------------
+1. Open the new Terminal by clicking on Terminal -> New Terminal
+2. Change to prometheus directory
+cd prometheus*
+
+3. List the contents in directory
+ls
+
+4. Move prometheus.yml to another file
+mv prometheus.yml prometheus_old.yml
+
+5. Configure prometheus.yml to scrape the host for every 10 seconds. Execute 'vi prometheus.yml' copy the below content and then save and exit the file
+
+global:
+  scrape_interval: 10s
+ 
+scrape_configs:
+  - job_name: 'Node Metrics'
+    static_configs:
+      - targets:
+        - 'localhost:8000'
+
+6. Stop node exporter and run the prometheus server
+./prometheus --config.file=prometheus.yml --web.listen-address="0.0.0.0:8000"

@@ -1,0 +1,10 @@
+Capture Node metrics
+---------------------
+cd node_exporter*
+
+Start node-exporter to capture host-based metrics
+--------------------------------------------------
+./node_exporter  --web.listen-address=:8000
+Open the web URL in a new tab by clicking on Run -> Open Preview to view node-exporter metrics
+
+#Move on to step-3
